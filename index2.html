@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8"> 
+		<title> Calculadora Flex </title>
+		
+		<style>
+			body
+			{
+				background-color : #333333;
+			}
+			
+			h1
+			{
+				color : #EA3A49;
+			}
+			
+			p
+			{
+				color : white;
+			}
+		</style>
+		
+	</head>
+	
+	<body>
+	
+	<div id="main" align ="center" fo>
+
+		<h1>JS - Calculadora Flex </h1>
+
+		<form name="formFlex">
+		
+		<p><b> Digite os preços abaixo: </b></p> 
+		
+		<p> Gasolina (R$): <input type="number" size="8" name="gas" min="0"> </p>
+		<p> Etanol (R$): <input type="number" size="8" name="alc" min="0"> </p>
+		
+		<p> 
+		<input type="button" value="Calcule" name="buttonCalc" onClick="Calc()">
+		<input type="reset" value="Limpar" name="buttonClear" onClick="Clear()">
+		</p>		
+		</form>
+
+		<img id="status" src="neutro.png" width="640" height="320" alt="Neutro"> </img>
+		
+	</div>
+		
+	</body>
+</html>
+
+<script >
+
+	
+
+	var Gas = 0;
+	var Eta = 0;
+	
+	function Calc ()
+	{
+		Gas = parseFloat (formFlex.gas.value);
+		Eta = parseFloat (formFlex.alc.value);
+		
+		console.log(Gas);
+		console.log(Eta);
+		
+		if (Eta < Gas * 0.7)
+		{
+			console.log("etanol");
+			ShowImage("etanol");
+		} 
+		else
+		{
+			console.log("gasolina");
+			ShowImage("gasolina");
+		}
+	}
+	
+	function ShowImage (img)
+	{
+		document.getElementById("status").src = img + ".png";
+		document.getElementById("status").alt = img;
+	}
+	
+	function Clear ()
+	{
+		Gas = 0;
+		eta = 0;
+		
+		ShowImage("neutro");
+	}
+	
+	
+	</script> 
+	
